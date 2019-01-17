@@ -10,6 +10,12 @@ const Login = () => import('@/components/login/Login');
 const Register = () => import('@/components/login/Register');
 //工作台
 const Workbench = () => import('@/components/home/workbench');
+//订单管理 -- 》订单录入
+const Orderadd = () => import('@/components/ordermanage/orderadd');
+//订单管理 -- 》订单列表
+const Orderlist = () => import('@/components/ordermanage/orderlist');
+
+
 
 export default new Router({
   mode: 'history',
@@ -42,6 +48,22 @@ export default new Router({
       component: Workbench,
       meta: {
         title: '工作台'
+      }
+    },
+    {
+      path: '/orderadd',
+      name: 'Orderadd',
+      component: Orderadd,
+      meta: {
+        title: '订单录入'
+      }
+    },
+    {
+      path: '/orderlist',
+      name: 'Orderlist',
+      component: Orderlist,
+      meta: {
+        title: '订单列表'
       }
     },
   ]

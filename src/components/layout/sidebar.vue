@@ -146,12 +146,12 @@ export default {
             {
               index: 0,
               title: '订单录入',
-              path: '/build_manage/build'
+              path: '/orderadd'
             },
             {
               index: 1,
               title: '订单列表',
-              path: '/build_manage/build'
+              path: '/orderlist'
             },
           ]
         },

@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      // '/qht': {
+      //   target: 'https://edu.qw1000.cn',
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/qht': '/qht'
+      //   }
+      // },
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
