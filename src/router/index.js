@@ -16,6 +16,12 @@ const Prolist = () => import('@/components/proManage/prolist');
 const buylist = () => import('@/components/buymanage/buylist');
 //客户管理/客户信息录入
 const customerinput = () => import('@/components/customermanage/customerinput');
+//订单管理 -- 》订单录入
+const Orderadd = () => import('@/components/ordermanage/orderadd');
+//订单管理 -- 》订单列表
+const Orderlist = () => import('@/components/ordermanage/orderlist');
+
+
 
 export default new Router({
   mode: 'history',
@@ -72,6 +78,21 @@ export default new Router({
       component: customerinput,
       meta: {
         title: '客户信息录入'
+      }
+    },{
+      path: '/orderadd',
+      name: 'Orderadd',
+      component: Orderadd,
+      meta: {
+        title: '订单录入'
+      }
+    },
+    {
+      path: '/orderlist',
+      name: 'Orderlist',
+      component: Orderlist,
+      meta: {
+        title: '订单列表'
       }
     },
   ]

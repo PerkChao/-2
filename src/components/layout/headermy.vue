@@ -90,12 +90,8 @@ export default {
     return {
       // changeTheme: false,
       menuList: [
-        { title: '基本设置', name: 'Information' },
-        { title: '虚拟团队', name: 'VirtualTeam' },
-        { title: '企业团队', name: 'CorporateTeam' },
-        { title: 'SSH KEY', name: 'SSHKEY' },
-        { title: '邮件提醒', name: 'EmailAlerts' },
-        { title: '安全设置', name: 'SecuritySettings' },
+        { title: '个人资料', name: 'Information' },
+        { title: '修改密码', name: 'VirtualTeam' },
       ]
     }
   },
