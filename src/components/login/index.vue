@@ -1,7 +1,7 @@
 <template>
   <div class="notLoggedIn">
     <div class="notLoggedIn-header">
-      <div class="logo visibility">精锐钟表配件厂生产管理系统sdfsdfsdfsdf</div>
+      <div class="logo visibility">精锐钟表配件厂生产管理系统</div>
     </div>
     <router-view />
   </div>

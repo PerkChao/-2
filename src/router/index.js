@@ -10,6 +10,12 @@ const Login = () => import('@/components/login/Login');
 const Register = () => import('@/components/login/Register');
 //工作台
 const Workbench = () => import('@/components/home/workbench');
+//产品管理/产品列表
+const Prolist = () => import('@/components/proManage/prolist');
+//采购商品管理/产品列表
+const buylist = () => import('@/components/buymanage/buylist');
+//客户管理/客户信息录入
+const customerinput = () => import('@/components/customermanage/customerinput');
 
 export default new Router({
   mode: 'history',
@@ -42,6 +48,30 @@ export default new Router({
       component: Workbench,
       meta: {
         title: '工作台'
+      }
+    },
+    {
+      path: '/proManage/Prolist',
+      name: 'Prolist',
+      component: Prolist,
+      meta: {
+        title: '产品列表'
+      }
+    },
+    {
+      path: '/buymanage/buylist',
+      name: 'buylist',
+      component: buylist,
+      meta: {
+        title: '商品列表'
+      }
+    },
+    {
+      path: '/customermanage/customerinput',
+      name: 'customerinput',
+      component: customerinput,
+      meta: {
+        title: '客户信息录入'
       }
     },
   ]
