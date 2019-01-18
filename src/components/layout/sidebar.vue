@@ -1,16 +1,40 @@
 <template>
-  <Menu theme="light" :active-name="$route.name" :open-names="openNames" @on-select="navigateTo" accordion>
-    <div v-for="(item,index) in menuList" :key="index">
-      <menuItem v-show="!item.list" :name="!!item.name?item.name:item.index.toString()" :to="item.path" @click.native="isOnlyIndex('null',index)">
+  <Menu
+    theme="light"
+    :active-name="$route.name"
+    :open-names="openNames"
+    @on-select="navigateTo"
+    accordion
+  >
+    <div
+      v-for="(item,index) in menuList"
+      :key="index"
+    >
+      <menuItem
+        v-show="!item.list"
+        :name="!!item.name?item.name:item.index.toString()"
+        :to="item.path"
+        @click.native="isOnlyIndex('null',index)"
+      >
         <Icon :type="item.icon" />
         {{item.title}}
       </menuItem>
-      <Submenu v-show="!!item.list" :name="!!item.name?item.name:item.index.toString()">
+      <Submenu
+        v-show="!!item.list"
+        :name="!!item.name?item.name:item.index.toString()"
+      >
         <template slot="title">
           <Icon :type="item.icon" />
           {{item.title}}
         </template>
-        <MenuItem :name="!!itemm.name?itemm.name:itemm.index" :to="itemm.path" v-for="(itemm,idx) in item.list" :key="idx" v-if="!!item.list" @click.native="isOnlyIndex(index,idx)">{{itemm.title}}</MenuItem>
+        <MenuItem
+          :name="!!itemm.name?itemm.name:itemm.index"
+          :to="itemm.path"
+          v-for="(itemm,idx) in item.list"
+          :key="idx"
+          v-if="!!item.list"
+          @click.native="isOnlyIndex(index,idx)"
+        >{{itemm.title}}</MenuItem>
       </Submenu>
     </div>
   </Menu>
@@ -28,75 +52,6 @@ export default {
         path: '/home/workbench',
         name: 'Workbench'
       },
-        // {
-        //     index: 1,
-        //     title: '项目中心',
-        //     icon: 'ios-paper-outline',
-        //     path: '/projectCenter/projectList',
-        //     name: 'ProjectList',
-        // },
-        // {
-        //     index: 2,
-        //     title: '评测中心',
-        //     icon: 'ios-photos-outline',
-        //     list: [{
-        //             index: 0,
-        //             title: '测试申请管理',
-        //             path: '/evaluationCenter/applyManage',
-        //             name: 'ApplyManage'
-        //         },
-        //         {
-        //             index: 1,
-        //             title: '测试审批管理',
-        //             path: '/evaluation_center/testAduit',
-        //             name: 'TestAduit'
-        //         },
-        //         {
-        //             index: 2,
-        //             title: '评价管理',
-        //             path: '/evaluation_center/wordsManage',
-        //             name: 'WordsManage'
-        //         },
-        //         {
-        //             index: 3,
-        //             title: '报告审批管理',
-        //             path: ''
-        //         },
-        //         {
-        //             index: 4,
-        //             title: '报告列表',
-        //             path: ''
-        //         },
-        //         {
-        //             index: 5,
-        //             title: '批次管理',
-        //             path: '/evaluationCenter/batchManage',
-        //             name: 'BatchManage'
-        //         }
-        //     ]
-        // },
-        // {
-        //     index: 3,
-        //     title: '管理中心',
-        //     icon: 'ios-settings-outline',
-        //     list: [{
-        //         index: 0,
-        //         title: '企业成员',
-        //         path: '/manage_center/firmMember'
-        //     }, {
-        //         index: 1,
-        //         title: '组织机构',
-        //         path: '/manage_center/Organization'
-        //     }, {
-        //         index: 2,
-        //         title: '企业信息',
-        //         path: '/manage_center/FirmInfo'
-        //     }, {
-        //         index: 3,
-        //         title: '资源管理',
-        //         path: ''
-        //     }]
-        // },
         {
           index: 1,
           title: '产品管理',
@@ -112,7 +67,7 @@ export default {
         {
           index: 2,
           title: '采购商品管理',
-          icon: 'ios-desktop-outline',
+          icon: 'ios-basket',
           list: [
             {
               index: 0,
@@ -141,7 +96,7 @@ export default {
         {
           index: 4,
           title: '订单管理',
-          icon: 'md-people',
+          icon: 'md-reorder',
           list: [
             {
               index: 0,
@@ -155,10 +110,11 @@ export default {
             },
           ]
         },
+
         {
           index: 5,
           title: '财务管理',
-          icon: 'md-people',
+          icon: 'logo-bitcoin',
           list: [
             {
               index: 0,
@@ -180,19 +136,31 @@ export default {
             {
               index: 0,
               title: '采购录入',
-              path: '/build_manage/build'
+              path: '/purchaseadd'
             },
             {
               index: 1,
               title: '采购列表',
-              path: '/build_manage/build'
+              path: '/purchaselist'
             },
           ]
         },
         {
           index: 7,
+          title: '生产计划',
+          icon: 'ios-paper-plane',
+          list: [
+            {
+              index: 0,
+              title: '生产计划表',
+              path: '/plan'
+            },
+          ]
+        },
+        {
+          index: 8,
           title: '财务报表',
-          icon: 'md-people',
+          icon: 'md-list-box',
           list: [
             {
               index: 0,
@@ -212,7 +180,7 @@ export default {
           ]
         },
         {
-          index: 8,
+          index: 9,
           title: '权限管理',
           icon: 'md-people',
           list: [
@@ -224,23 +192,6 @@ export default {
             {
               index: 1,
               title: '权限管理列表',
-              path: '/build_manage/build'
-            },
-          ]
-        },
-        {
-          index: 9,
-          title: '采购管理',
-          icon: 'md-people',
-          list: [
-            {
-              index: 0,
-              title: '采购录入',
-              path: '/build_manage/build'
-            },
-            {
-              index: 1,
-              title: '采购列表',
               path: '/build_manage/build'
             },
           ]
