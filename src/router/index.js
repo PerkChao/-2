@@ -16,10 +16,24 @@ const Prolist = () => import('@/components/proManage/prolist');
 const buylist = () => import('@/components/buymanage/buylist');
 //客户管理/客户信息录入
 const customerinput = () => import('@/components/customermanage/customerinput');
+//客户管理/客户列表
+const customerlist = () => import('@/components/customermanage/customerlist');
 //订单管理 -- 》订单录入
 const Orderadd = () => import('@/components/ordermanage/orderadd');
 //订单管理 -- 》订单列表
 const Orderlist = () => import('@/components/ordermanage/orderlist');
+//财务管理 -- 》财务录入
+const moneyinput = () => import('@/components/moneymanage/moneyinput');
+//财务管理 -- 》财务列表
+const moneylist = () => import('@/components/moneymanage/moneylist');
+//财务报表 -- 》客户统计
+const customerstate = () => import('@/components/financialstate/customerstate');
+//财务报表 -- 》销售统计报表
+const salestate = () => import('@/components/financialstate/salestate');
+//财务报表 -- 》车间统计报表
+const workshopstate = () => import('@/components/financialstate/workshopstate');
+//系统配置 -- 》系统配置
+const systemconfig = () => import('@/components/systemconfig/systemconfig');
 
 
 
@@ -79,7 +93,16 @@ export default new Router({
       meta: {
         title: '客户信息录入'
       }
-    },{
+    },
+    {
+      path: '/customermanage/customerlist',
+      name: 'customerlist',
+      component: customerlist,
+      meta: {
+        title: '客户列表'
+      }
+    },
+    {
       path: '/orderadd',
       name: 'Orderadd',
       component: Orderadd,
@@ -93,6 +116,54 @@ export default new Router({
       component: Orderlist,
       meta: {
         title: '订单列表'
+      }
+    },
+    {
+      path: '/moneymanage/moneyinput',
+      name: 'moneyinput',
+      component: moneyinput,
+      meta: {
+        title: '财务录入'
+      }
+    },
+    {
+      path: '/moneymanage/moneylist',
+      name: 'moneylist',
+      component: moneylist,
+      meta: {
+        title: '财务列表'
+      }
+    },
+    {
+      path: '/financialstate/customerstate',
+      name: 'customerstate',
+      component: customerstate,
+      meta: {
+        title: '客户统计'
+      }
+    },
+    {
+      path: '/financialstate/salestate',
+      name: 'customerstate',
+      component: salestate,
+      meta: {
+        title: '销售统计报表'
+      }
+    },
+    {
+      path: '/financialstate/workshopstate',
+      name: 'customerstate',
+      component: workshopstate,
+      meta: {
+        title: '车间统计报表'
+      }
+    },
+    {
+      path: '/systemconfig/systemconfig',
+      name: 'systemconfig',
+      component: systemconfig,
+      meta: {
+        title: '系统环境配置'
       }
     },
   ]

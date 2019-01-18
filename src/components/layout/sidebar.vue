@@ -105,7 +105,7 @@ export default {
             {
               index: 0,
               title: '产品列表',
-              path: '/testProject_manage/addProject'
+              path: '/proManage/Prolist'
             }
           ]
         },
@@ -117,7 +117,7 @@ export default {
             {
               index: 0,
               title: '采购商品列表',
-              path: '/project_manage/projectList'
+              path: '/buymanage/buylist'
             }
           ]
         },
@@ -129,12 +129,12 @@ export default {
             {
               index: 0,
               title: '客户录入',
-              path: '/build_manage/build'
+              path: '/customermanage/customerinput'
             },
             {
               index: 1,
               title: '客户列表',
-              path: '/build_manage/auditHistory'
+              path: '/customermanage/customerlist'
             }
           ]
         },
@@ -163,12 +163,12 @@ export default {
             {
               index: 0,
               title: '财务录入',
-              path: '/build_manage/build'
+              path: '/moneymanage/moneyinput'
             },
             {
               index: 1,
               title: '财务列表',
-              path: '/build_manage/build'
+              path: '/moneymanage/moneylist'
             },
           ]
         },
@@ -197,17 +197,17 @@ export default {
             {
               index: 0,
               title: '客户统计',
-              path: '/build_manage/build'
+              path: '/financialstate/customerstate'
             },
             {
               index: 1,
               title: '销售统计报表',
-              path: '/build_manage/build'
+              path: '/financialstate/salestate'
             },
             {
               index: 2,
               title: '车间统计报表',
-              path: '/build_manage/build'
+              path: '/financialstate/workshopstate'
             },
           ]
         },
@@ -249,7 +249,13 @@ export default {
           index: 10,
           title: '系统配置',
           icon: 'ios-paper-plane-outline',
-          path: '',
+          list: [
+            {
+              index: 0,
+              title: '系统配置',
+              path: '/systemconfig/systemconfig'
+            },
+          ]
         }
       ],
       firstArr: [],
