@@ -1,5 +1,5 @@
 <template>
-  <div class="order-list">
+  <div class="purchase-list">
     <div class="title">订单列表</div>
     <div class="search">
       <div class="common">
@@ -11,10 +11,10 @@
         />
       </div>
       <div class="common">
-        <h3>起止日期：</h3>
+        <h3>采购日期：</h3>
         <Col span="12">
           <DatePicker
-            :value="value2"
+            :value="projectQuery.time"
             format="yyyy/MM/dd"
             type="daterange"
             placement="bottom-end"
@@ -23,25 +23,12 @@
           ></DatePicker>
         </Col>
       </div>
-      <div class="common">
-        <h3>订单状态：</h3>
-        <Select
-          v-model="projectQuery.orderName"
-          style="width:110px;margin-left: 10px"
-        >
-          <Option
-            v-for="(item,index) in languageList"
-            :value="item.value"
-            :key="index"
-          >{{ item.label }}</Option>
-        </Select>
-      </div>
       <div class="btn-double">
         <Button
           class="btn-first"
           type="primary"
           @click="sendTo"
-        >确认</Button>
+        >查询</Button>
         <Button
           class="btn-cancal"
           type="default"
@@ -88,7 +75,7 @@
 
 <script>
 export default {
-  name: "orderlist",
+  name: "purchaselist",
   methods: {
     //搜索取消
     cancal() {
@@ -124,10 +111,9 @@ export default {
     return {
       projectQuery: {
         project: '',
-        orderName: '',
+        time: '',
       },
       languageList: [],
-      value2: '',
 
 
       //分页器
@@ -146,58 +132,34 @@ export default {
           key: 'number'
         },
         {
-          title: '客户名称',
-          minWidth: 60,
-          align: 'center',
-          key: 'name'
-        },
-        {
           title: '订单编号',
           minWidth: 60,
           align: 'center',
           key: 'orderNum'
         },
         {
-          title: '购买数量',
-          minWidth: 40,
+          title: '采购总额',
+          minWidth: 60,
           align: 'center',
           key: 'payNum'
         },
         {
-          title: '产品名称',
+          title: '商家名称',
           minWidth: 60,
           align: 'center',
-          key: 'productName'
+          key: 'name'
         },
         {
-          title: '交货日期',
+          title: '采购日期',
           minWidth: 60,
           align: 'center',
           key: 'sendTime'
         },
         {
-          title: '订单类型',
+          title: '联系电话',
           minWidth: 60,
           align: 'center',
-          key: 'orderType'
-        },
-        {
-          title: '订单状态',
-          minWidth: 40,
-          align: 'center',
-          key: 'orderState',
-        },
-        {
-          title: '跟单备注',
-          minWidth: 100,
-          align: 'center',
-          key: 'orderRemark'
-        },
-        {
-          title: '工时预警',
-          minWidth: 60,
-          align: 'center',
-          key: 'timeWarn'
+          key: 'phone'
         },
         {
           title: '操作',
@@ -229,10 +191,7 @@ export default {
                 slot: 'list'
               }, [
                 h('DropdownItem', '查看详情'),
-                h('DropdownItem', '财务录入'),
-                h('DropdownItem', '紧急'),
                 h('DropdownItem', '编辑'),
-                h('DropdownItem', '翻单'),
               ])
             ])
           }
@@ -244,28 +203,8 @@ export default {
           name: '客户名称',
           orderNum: 12138,
           payNum: 1,
-          productName: '产品名称',
           sendTime: '2019-03-20',
-          orderType: '订单类型',
-          orderState: '紧急',
-          orderRemark: '跟单备注跟单备注跟单备注跟单备注',
-          timeWarn: '工时预警',
-          cellClassName: {
-            orderState: 'danger'
-          }
-        },
-        {
-          number: 2,
-          name: '客户名称',
-          orderNum: 12138,
-          payNum: 1,
-          productName: '产品名称',
-          sendTime: '2019-03-20',
-          orderType: '订单类型',
-          orderState: '正常',
-          orderRemark: '跟单备注跟单备注跟单备注跟单备注',
-          timeWarn: '工时预警',
-
+          phone: '18223273702',
         },
       ],
     };
@@ -274,7 +213,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-  .order-list{
+  .purchase-list{
     background-color: #fff;
     .title{
       color: #003C78;
@@ -290,11 +229,18 @@ export default {
       display: flex;
       flex-wrap: wrap;
       .btn-double{
-
+        .btn-first{
+          background-color: #003C78;
+          border-color: #003C78;
+        }
       }
     }
     .add-del{
       padding: 20px 8px;
+      .btn-first{
+        background-color: #003C78;
+        border-color: #003C78;
+      }
     }
     .pagination{
       text-align: center;
@@ -313,14 +259,4 @@ export default {
     /*background-color: #003C78;*/
     margin-right: 10px;
   }
-  //表格样式
-
-</style>
-<style lang="less">
-  .cell{
-    .ivu-table .danger {
-      color: red;
-    }
-  }
-
 </style>

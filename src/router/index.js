@@ -20,8 +20,14 @@ const customerinput = () => import('@/components/customermanage/customerinput');
 const Orderadd = () => import('@/components/ordermanage/orderadd');
 //订单管理 -- 》订单列表
 const Orderlist = () => import('@/components/ordermanage/orderlist');
-
-
+//采购管理 -- > 采购录入
+const Purchaseadd = () => import('@/components/purchase/purchaseadd');
+//采购管理 -- > 采购列表
+const Purchaselist = () => import('@/components/purchase/purchaselist');
+//制订生产计划表
+const Writeplan = () => import('@/components/plan/writeplan');
+//生产计划表
+const Plan = () => import('@/components/plan/Plan');
 
 export default new Router({
   mode: 'history',
@@ -79,7 +85,8 @@ export default new Router({
       meta: {
         title: '客户信息录入'
       }
-    },{
+    },
+    {
       path: '/orderadd',
       name: 'Orderadd',
       component: Orderadd,
@@ -93,6 +100,38 @@ export default new Router({
       component: Orderlist,
       meta: {
         title: '订单列表'
+      }
+    },
+    {
+      path: '/purchaseadd',
+      name: 'Purchaseadd',
+      component: Purchaseadd,
+      meta: {
+        title: '采购录入'
+      }
+    },
+    {
+      path: '/purchaselist',
+      name: 'Purchaselist',
+      component: Purchaselist,
+      meta: {
+        title: '采购列表'
+      }
+    },
+    {
+      path: '/writeplan',
+      name: 'Writeplan',
+      component: Writeplan,
+      meta: {
+        title: '制定生产计划表'
+      }
+    },
+    {
+      path: '/plan',
+      name: 'Plan',
+      component: Plan,
+      meta: {
+        title: '生产计划表'
       }
     },
   ]
